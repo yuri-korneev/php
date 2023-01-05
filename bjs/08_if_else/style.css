@@ -1,4 +1,19 @@
 .game-card {
     height: 100vh;
-    font-family: 'Open Sans', monospace;
+    font-family: 'Roboto', monospace;
+}
+
+#btnLess, #btnOver {
+    font-size: 18px;
+    background-color: rgb(79, 104, 172);
+}
+
+#btnRetry {
+    font-size: 18px;
+    color:rgb(31, 70, 175);
+    text-decoration: none;
+}
+
+.card-header, .card-footer {
+    background-color: rgb(128, 228, 228);
 }
