@@ -1,15 +1,74 @@
-let minValue = parseInt(prompt('Минимальное значение числа для игры','0'));
 
-minValue = minValue || 0;
-minValue = (minValue < -999) ? -999 : minValue;
+        let minValue;
+        let maxValue;
 
-let maxValue = parseInt(prompt('Максимальное значение числа для игры','100'));
+               
+        $(document).ready(function(){
+                    
+                $('#PromisePrompt').modal({
+                    backdrop: 'static',
+                    keyboard: false,                                       
+                    });                           
 
-maxValue = maxValue || 100;
-maxValue = (maxValue > 999) ? 999 : maxValue;
+        });   
+        
+        $(document).ready(function(){
+                    
+            $('#btn').click(function() {
+            minValue = parseInt($("#PromisePrompt").find('input').val());
+            $('#PromisePrompt1').modal({
+                backdrop: 'static',
+                keyboard: false,                
+                });
+            });
 
-alert(`Загадайте любое целое число от ${minValue} до ${maxValue}, а я его угадаю`);
+        }); 
+
+              
+        $(document).ready(function() {
+
+        $('#btn1').click(function() {
+            
+        maxValue = parseInt($("#PromisePrompt1").find('input').val());
+
+        minValue = minValue || 0;
+        minValue = (minValue < -999) ? -999 : minValue;
+        
+           
+        //let maxValue = parseInt(prompt('Максимальное значение числа для игры','100'));
+        
+        maxValue = maxValue || 100;
+        maxValue = (maxValue > 999) ? 999 : maxValue;
+
+
+
+        $("#myModal .modal-body").html('Загадайте любое целое число от ' + minValue + ' до ' + maxValue +', а я его угадаю');
+        $('#myModal').modal({
+                kbackdrop: 'static',
+                keyboard: false,                
+                });
+            });
+
+        });
+
+    
+        $(document).ready(function(){
+                    
+            $('#btn2').click(function() {
+            
+     
+
+//alert(`Загадайте любое целое число от ${minValue} до ${maxValue}, а я его угадаю`);
+
+console.log(minValue);
+
+
 let answerNumber = Math.floor((minValue + maxValue) / 2);
+
+
+console.log(minValue);
+console.log(answerNumber);
+
 let orderNumber = 1;
 let gameRun = true;
 
@@ -17,7 +76,8 @@ let orderNumberField = document.getElementById('orderNumberField');
 let answerField = document.getElementById('answerField');
 
 
-
+console.log(minValue);
+console.log(answerNumber);
 
 function numberToString(numberGame) {
     const
@@ -73,33 +133,82 @@ function numberToString(numberGame) {
 
 }
 
+console.log(minValue);
+console.log(answerNumber);
 
+    orderNumberField.innerText = orderNumber;
+    answerField.innerText = `Вы загадали число ${numberToString(answerNumber) }?`;
 
-
-orderNumberField.innerText = orderNumber;
-answerField.innerText = `Вы загадали число ${numberToString(answerNumber) }?`;
-
-
+    console.log(minValue);
 
 
 document.getElementById('btnRetry').addEventListener('click', function () {
     minValue = 0;
     maxValue = 100;
     orderNumber = 0;
+
+    $(document).ready(function(){
+                    
+        $('#PromisePrompt').modal({
+            backdrop: 'static',
+            keyboard: false,                                       
+            });                           
+
+});   
+
+$(document).ready(function(){
+            
+    $('#btn').click(function() {
+    minValue = parseInt($("#PromisePrompt").find('input').val());
+    $('#PromisePrompt1').modal({
+        backdrop: 'static',
+        keyboard: false,                
+        });
+    });
+
+}); 
+
+      
+$(document).ready(function() {
+
+$('#btn1').click(function() {
     
-    minValue = parseInt(prompt('Минимальное знание числа для игры','0'));
+maxValue = parseInt($("#PromisePrompt1").find('input').val());
+
+minValue = minValue || 0;
+minValue = (minValue < -999) ? -999 : minValue;
+
+   
+//let maxValue = parseInt(prompt('Максимальное значение числа для игры','100'));
+
+maxValue = maxValue || 100;
+maxValue = (maxValue > 999) ? 999 : maxValue;
+
+
+
+$("#myModal .modal-body").html('Загадайте любое целое число от ' + minValue + ' до ' + maxValue +', а я его угадаю');
+$('#myModal').modal({
+        kbackdrop: 'static',
+        keyboard: false,                
+        });
+    });
+
+});
+
+    
+    // minValue = parseInt(prompt('Минимальное знание числа для игры','0'));
     if (isNaN(minValue)) {
         minValue = 0;
     } else
     minValue = (minValue < -999) ? -999 : minValue;
 
-    maxValue = parseInt(prompt('Максимальное знание числа для игры','100'));
+    // maxValue = parseInt(prompt('Максимальное знание числа для игры','100'));
     if (isNaN(maxValue)) {
         maxValue = 100;
     } else
     maxValue = (maxValue > 999) ? 999 : maxValue;
 
-    alert(`Загадайте любое целое число от ${minValue} до ${maxValue}, а я его угадаю`);
+    // alert(`Загадайте любое целое число от ${minValue} до ${maxValue}, а я его угадаю`);
     answerNumber = Math.floor((minValue + maxValue) / 2);
     orderNumber = 1;
     gameRun = true;
@@ -211,5 +320,7 @@ document.getElementById('btnEqual').addEventListener('click', function () {
     }
 })
 
+});
 
-
+});               
+  

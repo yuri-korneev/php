@@ -10,6 +10,67 @@
     <link rel="stylesheet" href="style.css" type="text/css"/>
 </head>
 <body>
+
+    
+
+<div id="myModal" class="modal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Подтвердите действие</h5>                                    
+            </div>
+            <div class="modal-body">
+                <p>Вы хотите сохранить изменения в этом документе перед закрытием?</p>                    
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal" id="btn2">Подтвердить</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="PromisePrompt" class="modal">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title"><i class="fas fa-question-circle text-primary"></i> <span>Подтвердите действие</span></h5>              
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="PromisePromptInput">Минимальное значение числа для игры</label>
+                    <input type="text" class="form-control" id="PromisePromptInput" placeholder="Введите число">                        
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" data-dismiss="modal" id="btn">OK</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="PromisePrompt1" class="modal">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title"><i class="fas fa-question-circle text-primary"></i> <span>Подтвердите действие</span></h5>                
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="PromisePromptInput">Максимальное значение числа для игры</label>
+                    <input type="text" class="form-control" id="PromisePromptInput" placeholder="Введите число">                        
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" data-dismiss="modal" id="btn1">OK</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
 <div class="container">
     <div class="row game-card align-items-center">
         <div class="col col-md-4 offset-md-4">
@@ -38,6 +99,13 @@
         </div>
     </div>
 </div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+
 <script src="script.js"></script>
+
+
 </body>
 </html>

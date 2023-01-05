@@ -1,6 +1,13 @@
+body {
+    font-family: 'Roboto', monospace;
+}
+
 .game-card {
     height: 100vh;
-    font-family: 'Roboto', monospace;
+}
+
+#btn2 {
+    background-color: rgb(79, 104, 172);    
 }
 
 #btnLess, #btnOver {
@@ -16,4 +23,20 @@
 
 .card-header, .card-footer {
     background-color: rgb(128, 228, 228);
+}
+
+.modal-body {
+    height: 170px;
+    padding-top: 50px;
+    padding-bottom: 40px;
+}
+
+.modal-header {
+    height: 60px;
+}
+
+.modal-header, .modal-footer {
+    background-color: rgb(128, 228, 228);
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
 }
