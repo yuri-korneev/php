@@ -1,83 +1,6 @@
 
-        let minValue;
-        let maxValue;
-
-               
-        $(document).ready(function(){
-                    
-                $('#PromisePrompt').modal({
-                    backdrop: 'static',
-                    keyboard: false,                                       
-                    });                           
-
-        });   
-        
-        $(document).ready(function(){
-                    
-            $('#btn').click(function() {
-            minValue = parseInt($("#PromisePrompt").find('input').val());
-            $('#PromisePrompt1').modal({
-                backdrop: 'static',
-                keyboard: false,                
-                });
-            });
-
-        }); 
-
-              
-        $(document).ready(function() {
-
-        $('#btn1').click(function() {
-            
-        maxValue = parseInt($("#PromisePrompt1").find('input').val());
-
-        minValue = minValue || 0;
-        minValue = (minValue < -999) ? -999 : minValue;
-        
-           
-        //let maxValue = parseInt(prompt('Максимальное значение числа для игры','100'));
-        
-        maxValue = maxValue || 100;
-        maxValue = (maxValue > 999) ? 999 : maxValue;
-
-
-
-        $("#myModal .modal-body").html('Загадайте любое целое число от ' + minValue + ' до ' + maxValue +', а я его угадаю');
-        $('#myModal').modal({
-                kbackdrop: 'static',
-                keyboard: false,                
-                });
-            });
-
-        });
-
-    
-        $(document).ready(function(){
-                    
-            $('#btn2').click(function() {
-            
-     
-
-//alert(`Загадайте любое целое число от ${minValue} до ${maxValue}, а я его угадаю`);
-
-console.log(minValue);
-
-
-let answerNumber = Math.floor((minValue + maxValue) / 2);
-
-
-console.log(minValue);
-console.log(answerNumber);
-
-let orderNumber = 1;
-let gameRun = true;
-
-let orderNumberField = document.getElementById('orderNumberField');
-let answerField = document.getElementById('answerField');
-
-
-console.log(minValue);
-console.log(answerNumber);
+let minValue;
+let maxValue;
 
 function numberToString(numberGame) {
     const
@@ -130,100 +53,106 @@ function numberToString(numberGame) {
 
     else return numberGame;
 
-
 }
 
-console.log(minValue);
-console.log(answerNumber);
 
-    orderNumberField.innerText = orderNumber;
-    answerField.innerText = `Вы загадали число ${numberToString(answerNumber) }?`;
+function func(){
 
-    console.log(minValue);
-
-
-document.getElementById('btnRetry').addEventListener('click', function () {
-    minValue = 0;
-    maxValue = 100;
-    orderNumber = 0;
-
-    $(document).ready(function(){
+     $(document).ready(function(){
                     
         $('#PromisePrompt').modal({
             backdrop: 'static',
             keyboard: false,                                       
-            });                           
+        })                           
 
-});   
-
-$(document).ready(function(){
+    })   
+        
+    $(document).ready(function(){
+                    
+        $('#btn').click(function() {
             
-    $('#btn').click(function() {
-    minValue = parseInt($("#PromisePrompt").find('input').val());
-    $('#PromisePrompt1').modal({
-        backdrop: 'static',
-        keyboard: false,                
-        });
-    });
+            minValue = parseInt($("#PromisePrompt").find('input').val());
+            
+            $('#PromisePrompt1').modal({
+                backdrop: 'static',
+                keyboard: false,                
+                })
+            })
 
-}); 
+    }) 
 
-      
-$(document).ready(function() {
+              
+    $(document).ready(function() {
 
-$('#btn1').click(function() {
-    
-maxValue = parseInt($("#PromisePrompt1").find('input').val());
+        $('#btn1').click(function() {
+            
+        maxValue = parseInt($("#PromisePrompt1").find('input').val());
 
-minValue = minValue || 0;
-minValue = (minValue < -999) ? -999 : minValue;
+        console.log(minValue);
+        console.log(maxValue);
 
-   
-//let maxValue = parseInt(prompt('Максимальное значение числа для игры','100'));
+        
+        minValue = minValue || 0;
+        minValue = (minValue < -999 || minValue > 999 || minValue > maxValue) ? -999 : minValue;    
+          
+          
+        if (maxValue == 0) {
+            maxValue = 0;
+        } else {
+        maxValue = maxValue || 100;
+        maxValue = (maxValue > 999 || maxValue < -999) ? 999 : maxValue;
+        }
 
-maxValue = maxValue || 100;
-maxValue = (maxValue > 999) ? 999 : maxValue;
+        
+        console.log(minValue);
+        console.log(maxValue);
+        
+            $("#myModal .modal-body").html('Загадайте любое целое число от ' + minValue + ' до ' + maxValue +', а я его угадаю');
+            $('#myModal').modal({
+                backdrop: 'static',
+                keyboard: false,                
+                })
+            
+        })
 
+    })
 
+}
 
-$("#myModal .modal-body").html('Загадайте любое целое число от ' + minValue + ' до ' + maxValue +', а я его угадаю');
-$('#myModal').modal({
-        kbackdrop: 'static',
-        keyboard: false,                
-        });
-    });
+func();
 
-});
+    $(document).ready(function(){
+                    
+        $('#btn2').click(function() {           
+  
 
-    
-    // minValue = parseInt(prompt('Минимальное знание числа для игры','0'));
-    if (isNaN(minValue)) {
-        minValue = 0;
-    } else
-    minValue = (minValue < -999) ? -999 : minValue;
+    //alert(`Загадайте любое целое число от ${minValue} до ${maxValue}, а я его угадаю`);
 
-    // maxValue = parseInt(prompt('Максимальное знание числа для игры','100'));
-    if (isNaN(maxValue)) {
-        maxValue = 100;
-    } else
-    maxValue = (maxValue > 999) ? 999 : maxValue;
+let answerNumber = Math.floor((minValue + maxValue) / 2);
 
-    // alert(`Загадайте любое целое число от ${minValue} до ${maxValue}, а я его угадаю`);
-    answerNumber = Math.floor((minValue + maxValue) / 2);
-    orderNumber = 1;
-    gameRun = true;
+let orderNumber = 1;
+let gameRun = true;
 
-    orderNumberField = document.getElementById('orderNumberField');
-    answerField = document.getElementById('answerField');
+let orderNumberField = document.getElementById('orderNumberField');
+let answerField = document.getElementById('answerField');
 
-    orderNumberField.innerText = orderNumber;
-    answerField.innerText = `Вы загадали число ${numberToString(answerNumber) }?`;
+orderNumberField.innerText = orderNumber;
+answerField.innerText = `Вы загадали число ${numberToString(answerNumber) }?`; 
+
+ 
+document.getElementById('btnRetry').addEventListener('click', function () {
+      minValue = 0;
+      maxValue = 100;
+      orderNumber = 0;
+     
+      func();
+
 })
 
 
 document.getElementById('btnOver').addEventListener('click', function () {
     if (gameRun){
-        if (minValue === maxValue){
+        if (minValue === maxValue) {
             const phraseRandom = Math.round(Math.random());
             const answerPhrase = (phraseRandom === 1) ?
                 `Вы загадали неправильное число!\n\u{1F914}` :
@@ -261,7 +190,7 @@ document.getElementById('btnOver').addEventListener('click', function () {
 
 document.getElementById('btnLess').addEventListener('click', function () {
     if (gameRun){
-        if (minValue === maxValue){
+        if (minValue === maxValue) {
             const phraseRandom = Math.round(Math.random());
             const answerPhrase = (phraseRandom === 1) ?
                 `Вы загадали неправильное число!\n\u{1F914}` :
@@ -270,10 +199,11 @@ document.getElementById('btnLess').addEventListener('click', function () {
             answerField.innerText = answerPhrase;
             gameRun = false;
         } else {
-            maxValue = answerNumber;
-            answerNumber = Math.floor((minValue + maxValue) / 2);
+            maxValue = answerNumber-1;
+            answerNumber = Math.ceil((minValue + maxValue) / 2);
             orderNumber++;
             orderNumberField.innerText = orderNumber;
+
 
             const phraseRandom = Math.round(Math.random()*3);
             let answerPhrase;
