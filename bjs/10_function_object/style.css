@@ -1,0 +1,22 @@
+body {
+    margin-top: 10%;
+    background-image: url(https://damion.club/uploads/posts/2022-01/1641341441_5-damion-club-p-foni-dlya-prilozhenii-5.jpg);
+    background-size: cover;
+    font-family: 'Ubuntu', sans-serif;   
+    animation: animation 3s forwards;    
+}
+
+@keyframes animation {
+    0% {opacity: 0;}
+    100% {opacity: 0.9;}
+  }
+
+.col-md-6 {
+    background-color: rgb(191, 252, 231);
+}
+
+button {
+    width: 220px;
+}
+
+
