@@ -53,22 +53,6 @@ const personGenerator = {
         }
     }`,
 
-    patronymicJson: `{
-        "count": 10,
-        "list": {     
-            "id_1": "Алексеев",
-            "id_2": "Петров",
-            "id_3": "Юрьев",
-            "id_4": "Кантемиров",
-            "id_5": "Иванов",
-            "id_6": "Николаев",
-            "id_7": "Никитов",
-            "id_8": "Григорьев",
-            "id_9": "Владимиров",
-            "id_10": "Антонов"
-        }
-    }`,
-
     professionMaleJson: `{
         "count": 10,
         "list": {     
@@ -160,7 +144,7 @@ const personGenerator = {
     },
 
     randomBirthYear: function() {
-        return this.randomIntNumber(2023, 1900);
+        return this.randomIntNumber(2000, 1940);
     },
 
     randomProfessionFemale: function () {
@@ -175,9 +159,45 @@ const personGenerator = {
 
     },
 
-    randomPatronymic: function () {
+    randomPatronymicMale: function () {
 
-        return this.randomValue(this.patronymicJson);
+        let patronymic = this.randomValue(this.firstNameMaleJson);
+        let lastLetter = patronymic.charAt(patronymic.length - 1);
+        let lastThreeLetters = patronymic.substr(-3, 3);
+
+        if (lastLetter == "а") {
+            return patronymic.slice(0, patronymic.length - 1)+"ович";
+        }
+        else if (lastLetter == "й") {
+            return patronymic.slice(0, patronymic.length - 1)+"евич";
+        }
+        else if (lastThreeLetters == "аил") {
+            return patronymic.slice(0, patronymic.length - 2)+"йлович";
+        }
+        else {
+            return patronymic + "ович";
+        }
+
+    },
+
+    randomPatronymicFemale: function () {
+
+        let patronymic = this.randomValue(this.firstNameMaleJson);
+        let lastLetter = patronymic.charAt(patronymic.length - 1);
+        let lastThreeLetters = patronymic.substr(-3, 3);
+
+        if (lastLetter == "а") {
+            return patronymic.slice(0, patronymic.length - 1)+"овна";
+        }
+        else if (lastLetter == "й") {
+            return patronymic.slice(0, patronymic.length - 1)+"евна";
+        }
+        else if (lastThreeLetters == "аил") {
+            return patronymic.slice(0, patronymic.length - 2)+"йловна";
+        }
+        else {
+            return patronymic + "овна";
+        }
 
     },
 
@@ -200,12 +220,12 @@ const personGenerator = {
             this.person.firstName = this.randomFirstNameMale();
             this.person.surname = this.randomSurname();
             this.person.profession = this.randomProfessionMale();
-            this.person.patronymic = this.randomPatronymic() + 'ич';
+            this.person.patronymic = this.randomPatronymicMale();
         } else {
             this.person.firstName = this.randomFirstNameFemale();
             this.person.surname = this.randomSurname() + 'a';
             this.person.profession = this.randomProfessionFemale();
-            this.person.patronymic = this.randomPatronymic() + 'на';
+            this.person.patronymic = this.randomPatronymicFemale();
         }
 
         if (this.person.month == "апреля" || this.person.month  == "июня" || this.person.month  == "сентября" || this.person.month  == "ноября"){
